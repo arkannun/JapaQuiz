@@ -4,7 +4,16 @@ CORES #020301   #F8FDFF   #B7C1C2    #E80028  #262D38
 */
 
 
+header {
+    width: 100%;
+    background-color: #262D38;
+    padding: 5px 15px;
+}
 
+nav{
+   display: flex;
+   justify-content: center;
+}
 
 body {
     background-color: #F8FDFF;
@@ -23,6 +32,7 @@ ul {
 li {
     list-style: none;
     display: inline-block;
+
 }
 
 li a {
@@ -31,9 +41,43 @@ li a {
     background-color: #262D38;
     padding: 5px 15px;
     margin-bottom: 1px;
+    margin-left: -5px;
 
 }
 
 li a:hover {
     background-color: #020301;
+}
+
+label {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+
+}
+
+input[type="text"]  {
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 50%;
+}
+
+input[type="button"]  {
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    margin: 10 auto;
+    width: 25%;
+}
+
+footer {
+    position: absolute;
+    bottom: 5px;
+    width: 99%;
+    margin-top: 10px;
+    font-size: 75%;
+    text-align: center;
 }
