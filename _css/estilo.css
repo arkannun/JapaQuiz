@@ -1,3 +1,39 @@
+/*
+CORES #020301   #F8FDFF   #B7C1C2    #E80028  #262D38
+       escuro    claro     cinza      red       CINZA ESC
+*/
+
+
+
+
 body {
-    background-color: beige;
+    background-color: #F8FDFF;
+}
+
+h1 {
+    color: #020301;
+    text-align: center;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+}
+
+li a {
+    text-decoration: none;
+    color: #F8FDFF;
+    background-color: #262D38;
+    padding: 5px 15px;
+    margin-bottom: 1px;
+
+}
+
+li a:hover {
+    background-color: #020301;
 }
