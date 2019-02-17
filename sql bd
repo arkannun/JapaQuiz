@@ -1,0 +1,13 @@
+CREATE DATABASE japa;
+
+USE japa;
+
+CREATE TABLE `japa` (
+  `kana` varchar(200) NOT NULL default '',
+  `pronuncia` varchar(200) NOT NULL default '',
+  `significado` varchar(200) NOT NULL default '',
+  `numTraco` int(4) ,
+  `grade` int(4) ,
+  PRIMARY KEY  (`kana`),
+  UNIQUE KEY `kana` (`kana`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
