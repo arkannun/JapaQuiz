@@ -17,8 +17,26 @@
             </header>
 
             <section>
-                <h1>Japa Quiz</h1>
+                <h1>Listagem de Kanas</h1>
+                <hr>
+                <?php
+                    header('Content-Type: text/html; charset=utf-8');
+                    $servidor = "localhost";
+                    $usuario = "root";
+                    $senha = "";
+                    $banco = "japa";
 
+                    $strcon = mysqli_connect($servidor,$usuario,$senha,$banco) or die('Erro ao conectar ao banco de dados');
+
+                    $sql  = "SELECT * FROM japa;";
+
+                    $data = mysqli_query( $strcon,$sql );
+                    while( $l =$row = $data->fetch_assoc() )
+                    {
+                        echo  $l['kana'] . " " . $l['significado'] . "<br>";
+                    }
+                    mysqli_close($strcon);
+                ?>
             </section>
 
             <footer>
@@ -28,5 +46,3 @@
         </main>
     </body>
 </html>
-
-
