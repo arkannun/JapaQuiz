@@ -15,11 +15,11 @@
     $strcon = mysqli_connect($servidor,$usuario,$senha,$banco) or die('Erro ao conectar ao banco de dados');
 
     $sql = "INSERT INTO japa VALUES ( ";
-    $sql .= "'" .$kana .  "',";
+    $sql .= "'" . $kana        .  "',";
+    $sql .= "'" . $pronuncia   .  "',";
     $sql .= "'" . $significado .  "',";
-    $sql .= "'" . pronuncia .  "',";
-    $sql .= "'" . $numTracos .  "',";
-    $sql .= "'" . $grade .  "'";
+    $sql .= "'" . $numTracos   .  "',";
+    $sql .= "'" . $grade       .  "'";
     $sql .= ");";
     mysqli_query($strcon,$sql) or die("Erro ao tentar cadastrar registro");
     mysqli_close($strcon);

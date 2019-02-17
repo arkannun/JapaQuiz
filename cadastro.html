@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Japa Quiz</title>
+        <link href="_css/estilo.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Quiz</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                        <li><a href="lista.php">Lista</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section>
+                <h1>Cadastro de Kanas</h1>
+                <form autocomplete="off" action="gravaDados.php" method="POST" name="frmCadKana">
+                    <label for="kana">Ideograma</label>
+                    <input type="text" id="kana" name="kana" autofocus="on">
+
+                    <label for="pronuncia">Pronuncia</label>
+                    <input type="text" id="pronuncia" name="pronuncia">
+
+                    <label for="significado">Significado</label>
+                    <input type="text" id="significado" name="significado">
+
+                    <label for="numTraco">Número de Traços</label>
+                    <input type="text" id="numTraco" name="numTraco">
+
+                    <label for="grade">Grade</label>
+                    <input type="text" id="grade" name="grade">
+
+
+
+                    <input type="button" value="Gravar" id="gravar" name="gravar" onclick="confirma()">
+                </form>
+            </section>
+
+            <footer>
+                Programado por Makswel F. Cunha -
+                <a href="mailto:arkannun@gmail.com?Subject=Japa%20Quiz" target="_top">arkannun@gmail.com</a> - MCA - 2019
+            </footer>
+        </main>
+        <script>
+            let inp = document.querySelectorAll("input");
+            window.onload = function(){
+                for (let i=0;i<inp.length-1;i++){
+                    inp[i].addEventListener("keydown",function (e){
+                        if (e.keyCode===13){
+                            if (i!=4){
+                                inp[i+1].focus();
+                            } else {
+                                confirma();
+                            }
+                            e.preventDefault();
+                        }
+                    });
+                }
+               // document.querySelector("#salvar").addEventListener('click', confirma);
+               // document.querySelector("#salvar").addEventListener('keydown', confirma);
+            }
+
+
+            function confirma(){
+                if (confirm("Deseja salvar este kana?")){
+                    document.frmCadKana.submit();
+                }
+            }
+        </script>
+    </body>
+</html>
