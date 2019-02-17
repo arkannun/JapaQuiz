@@ -1,13 +1,11 @@
 <?php
     header('Content-Type: text/html; charset=utf-8');
 
-
     $kana = $_POST['kana'];
     $significado = $_POST['significado'];
     $pronuncia = $_POST['pronuncia'];
     $numTracos = $_POST['numTracos'];
     $grade = $_POST['grade'];
-
 
     $servidor = "localhost";
     $usuario = "root";
