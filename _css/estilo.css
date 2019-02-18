@@ -79,3 +79,30 @@ footer {
     font-size: 75%;
     text-align: center;
 }
+
+table {
+
+    margin: auto;
+    text-align: center;
+}
+
+
+td {
+
+    background-color: #dddddd;
+    padding: 3px;
+
+
+}
+
+th {
+    text-align: center;
+    padding: 8px;
+    background-color: #262D38;
+    color: white;
+}
+
+.apagar {
+    text-decoration: none;
+    color: white;
+}
