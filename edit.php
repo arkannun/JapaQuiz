@@ -9,7 +9,7 @@
             <header>
                 <nav>
                     <ul>
-                        <li><a href="index.html">Quiz</a></li>
+                        <li><a href="index.php">Quiz</a></li>
                         <li><a href="cadastro.html">Cadastro</a></li>
                         <li><a href="lista.php">Lista</a></li>
                     </ul>

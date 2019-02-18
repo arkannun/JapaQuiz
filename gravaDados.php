@@ -4,7 +4,7 @@
     $kana = $_POST['kana'];
     $significado = $_POST['significado'];
     $pronuncia = $_POST['pronuncia'];
-    $numTracos = $_POST['numTracos'];
+    $numTraco = $_POST['numTraco'];
     $grade = $_POST['grade'];
 
     $servidor = "localhost";
@@ -18,7 +18,7 @@
     $sql .= "'" . $kana        .  "',";
     $sql .= "'" . $pronuncia   .  "',";
     $sql .= "'" . $significado .  "',";
-    $sql .= "'" . $numTracos   .  "',";
+    $sql .= "'" . $numTraco    .  "',";
     $sql .= "'" . $grade       .  "'";
     $sql .= ");";
     mysqli_query($strcon,$sql) or die("Erro ao tentar cadastrar registro");
