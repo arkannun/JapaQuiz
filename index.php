@@ -95,9 +95,9 @@
 
             function atualizaPlacar(){
                 if(tipo==0){
-                    document.querySelector("#tipo").innerHTML=`Qual a tradução deste kana?`;
+                    document.querySelector("#tipo").innerHTML=`Qual a <b>tradução</b> deste kana?`;
                 } else if (tipo==1){
-                    document.querySelector("#tipo").innerHTML=`Qual a pronuncia deste kana?`;
+                    document.querySelector("#tipo").innerHTML=`Qual a <b>pronuncia</b> deste kana?`;
                 }
                 document.querySelector("#acertos").innerHTML=`Acertos: ${acertos}`;
                 document.querySelector("#erros").innerHTML=`Erros: ${erros}`;
