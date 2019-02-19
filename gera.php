@@ -10,13 +10,28 @@
     $sql  = "SELECT * FROM japa;";
 
     $data = mysqli_query( $strcon,$sql );
-    $arr=array();
+
+    $arrKana=array();
+    $arrSignificado=array();
+    $arrPronuncia=array();
+    $arrNumTraco=array();
+    $arrGrade=array();
+
     while( $l =$row = $data->fetch_assoc() )
     {
-        array_push($arr, $l['kana']);
+        array_push($arrKana,        $l['kana']);
+        array_push($arrSignificado, $l['significado']);
+        array_push($arrPronuncia,   $l['pronuncia']);
+        array_push($arrNumTraco,    $l['numTraco']);
+        array_push($arrGrade,       $l['grade']);
     }
+
     mysqli_close($strcon);
 
-    $max = sizeof($arr) - 1;
-    echo $arr[rand(0,$max)];
+    $max = sizeof($arrKana) - 1;
+    $indice = rand(0,$max);
+
+    $json = "{\"kana\":\"" . $arrKana[$indice] . "\", \"significado\":\"" . $arrSignificado[$indice] . "\", \"pronuncia\":\"" . $arrPronuncia[$indice] . "\", \"numTraco\":" . $arrNumTraco[$indice] . ", \"grade\":" . $arrGrade[$indice] . "}";
+
+    echo $json;
 ?>
