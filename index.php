@@ -19,8 +19,12 @@
 
             <section>
                 <h1>Japa Quiz</h1>
-                <p id="dados">kana </p>
-                <input type="text" id="significado" name="significado">
+                <p id="dados">  </p>
+                <p id="tipo" class="ptipo">   </p>
+                <input type="text" id="significado" name="significado" autofocus="on">
+                <p id="msg" class="msg"> </p>
+                <p id="acertos" class="acertos"> </p>
+                <p id="erros" class="erros"> </p>
 
             </section>
 
@@ -30,32 +34,87 @@
             </footer>
         </main>
         <script>
-            window.onload = function(){
 
+            arrJson="";
+            tipo=0;
+            acertos=0;
+            erros=0;
+            tentativasErro=0;
+
+
+
+            function testa(){
+                if(tipo==0){
+                    if(document.querySelector("#significado").value == arrJason.significado){
+                        acertos++;
+                        gera(0);
+                        document.querySelector("#msg").innerHTML="Meus parabéns!!!";
+                    } else {
+                        tentativasErro++;
+                        erros++;
+                        document.querySelector("#msg").innerHTML="Errou, tente novamente!";
+                        if (tentativasErro>2){
+                            document.querySelector("#msg").innerHTML="A tradução correta é: " + arrJason.significado;
+                        }
+                    }
+                } else {
+                    if(document.querySelector("#significado").value == arrJason.pronuncia){
+                        acertos++;
+                        gera(0);
+                        document.querySelector("#msg").innerHTML="Meus parabéns!!!";
+                    } else {
+                        tentativasErro++;
+                        erros++;
+                        document.querySelector("#msg").innerHTML="Errou, tente novamente!";
+                        if (tentativasErro>2){
+                            document.querySelector("#msg").innerHTML="A tradução correta é: " + arrJason.pronuncia;
+                        }
+                    }
+
+                }
+
+                atualizaPlacar();
+            }
+
+            function gera(palavra){
+                let page = "gera.php";
+                $.ajax ({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: page,
+                    data: {palavra: palavra},
+                    success: function (msg) {
+                        arrJason=(msg);
+                        $("#dados").html(arrJason.kana);
+                        tipo=Math.floor(Math.random() * Math.floor(2));
+                        atualizaPlacar();
+                    }
+                });
+            }
+
+
+            function atualizaPlacar(){
+                if(tipo==0){
+                    document.querySelector("#tipo").innerHTML=`Qual a tradução deste kana?`;
+                } else if (tipo==1){
+                    document.querySelector("#tipo").innerHTML=`Qual a pronuncia deste kana?`;
+                }
+                document.querySelector("#acertos").innerHTML=`Acertos: ${acertos}`;
+                document.querySelector("#erros").innerHTML=`Erros: ${erros}`;
+            }
+
+            window.onload = function(){
+                gera(0);
                 document.body.querySelector("#significado").addEventListener("keydown",function (e){
                     if (e.keyCode===13){
-                        gera(0);
+                        testa();
                         e.preventDefault();
                     }
                 });
             }
 
 
-            function gera(palavra){
-                let page = "gera.php";
-                $.ajax ({
-                    type: 'POST',
-                    dataType: 'html',
-                    url: page,
-                    beforeSend: function () {
-                     $("#dados").html ("Carregando...")   ;
-                    },
-                    data: {palavra: palavra},
-                    success: function (msg) {
-                        $("#dados").html(msg);
-                    }
-                });
-            }
+
 
         </script>
     </body>

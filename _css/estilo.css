@@ -113,3 +113,22 @@ p {
     margin-bottom: 1px;
     margin-top: 1px;
 }
+
+.pTipo {
+    font-size: 24;
+}
+
+.erros {
+    font-size: 30;
+    color: red;
+}
+
+.acertos {
+    font-size: 30;
+    color: green;
+}
+
+.msg {
+   font-size: 40;
+    color: #262D38;
+}
