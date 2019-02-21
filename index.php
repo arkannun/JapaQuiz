@@ -47,11 +47,16 @@
                 if(tipo==0){
                     if(document.querySelector("#significado").value == arrJason.significado){
                         acertos++;
+                        tentativasErro=0;
                         gera(0);
                         document.querySelector("#msg").innerHTML="Meus parabéns!!!";
+                        document.querySelector("#significado").value="";
+                        document.querySelector("#significado").focus();
                     } else {
                         tentativasErro++;
                         erros++;
+                        document.querySelector("#significado").value="";
+                        document.querySelector("#significado").focus();
                         document.querySelector("#msg").innerHTML="Errou, tente novamente!";
                         if (tentativasErro>2){
                             document.querySelector("#msg").innerHTML="A tradução correta é: " + arrJason.significado;
@@ -60,11 +65,16 @@
                 } else {
                     if(document.querySelector("#significado").value == arrJason.pronuncia){
                         acertos++;
+                        tentativasErro=0;
                         gera(0);
                         document.querySelector("#msg").innerHTML="Meus parabéns!!!";
+                        document.querySelector("#significado").value="";
+                        document.querySelector("#significado").focus();
                     } else {
                         tentativasErro++;
                         erros++;
+                        document.querySelector("#significado").value="";
+                        document.querySelector("#significado").focus();
                         document.querySelector("#msg").innerHTML="Errou, tente novamente!";
                         if (tentativasErro>2){
                             document.querySelector("#msg").innerHTML="A tradução correta é: " + arrJason.pronuncia;
